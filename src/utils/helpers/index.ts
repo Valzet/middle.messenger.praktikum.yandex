@@ -1,4 +1,3 @@
-export default  function resolvePath(path:string) {
-    return path;
-  }
-  
+export default function resolvePath(path: string) {
+  return path;
+}

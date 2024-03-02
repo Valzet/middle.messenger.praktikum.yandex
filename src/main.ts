@@ -1,25 +1,22 @@
-import Handlebars from "handlebars";
-import * as Components from "./components";
-import * as Pages from "./pages";
-import resolvePath from "./utils/helpers/index";
+import Handlebars from 'handlebars';
+import * as Components from './components';
+import * as Pages from './pages';
+import resolvePath from './utils/helpers/index';
 
-const pages: { [key: string]: [string | Handlebars.TemplateDelegate<any>] } = {
-  chat: [Pages.ChatPage],
-  login: [Pages.LoginPage],
-  '': [Pages.NavigationPage],
-  signin: [Pages.SigninPage],
-  profile: [Pages.ProfilePage],
-  editProfile: [Pages.ProfileEditPage],
-  changePassword: [Pages.ProfilePasswordPage],
+const pages: { [key: string]: [string | Handlebars.TemplateDelegate] } = {
+  'chat': [Pages.ChatPage],
+  'login': [Pages.LoginPage],
+  '/': [Pages.NavigationPage],
+  'signin': [Pages.SigninPage],
+  'profile': [Pages.ProfilePage],
+  'editProfile': [Pages.ProfileEditPage],
+  'changePassword': [Pages.ProfilePasswordPage],
   404: [Pages.NotFoundErrorPage],
-  500: [Pages.ServerErrorPage]
+  500: [Pages.ServerErrorPage],
 };
 
 Object.entries(Components).forEach(([name, component]) => {
-  Handlebars.registerPartial(
-    name,
-    <Handlebars.TemplateDelegate<any> | string>component
-  );
+  Handlebars.registerPartial(name, <Handlebars.TemplateDelegate | string>component);
 });
 
 function navigate(page: string) {
@@ -29,12 +26,12 @@ function navigate(page: string) {
   updateURL(page);
 }
 function updateURL(page: string) {
-  history.pushState({ page }, "", `/${page}`);
+  history.pushState({ page }, '', `/${page}`);
 }
-document.addEventListener("DOMContentLoaded", () => navigate(""));
+document.addEventListener('DOMContentLoaded', () => navigate('/'));
 
-document.addEventListener("click", (e) => {
-  const page = (e.target as Element)?.getAttribute("page");
+document.addEventListener('click', (e) => {
+  const page = (e.target as Element)?.getAttribute('page');
   if (page) {
     navigate(page);
     e.preventDefault();
@@ -44,7 +41,7 @@ document.addEventListener("click", (e) => {
 
 Handlebars.registerHelper('resolve', resolvePath);
 
-window.addEventListener("popstate", (event) => {
+window.addEventListener('popstate', (event) => {
   const page = event.state.page;
   if (page) {
     navigate(page);

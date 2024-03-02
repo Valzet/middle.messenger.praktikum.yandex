@@ -1,3 +1,2 @@
-import "../profile-page.scss";
-export { default as ProfilePasswordPage } from "./profile-password-page.hbs?raw";
-
+import '../profile-page.scss';
+export { default as ProfilePasswordPage } from './profile-password-page.hbs?raw';
