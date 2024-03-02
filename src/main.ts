@@ -8,6 +8,8 @@ const pages: { [key: string]: [string | Handlebars.TemplateDelegate<any>] } = {
   nav: [Pages.NavigationPage],
   signin: [Pages.SigninPage],
   profile: [Pages.ProfilePage],
+  editProfile: [Pages.ProfileEditPage],
+  changePassword: [Pages.ProfilePasswordPage]
 };
 
 Object.entries(Components).forEach(([name, component]) => {
