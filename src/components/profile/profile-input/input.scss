@@ -1,0 +1,31 @@
+@import "../../../assets/variables";
+.input__wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #eaeaea;
+}
+
+.input__wrapper:last-of-type {
+  border-bottom: none;
+}
+
+.input {
+  height: 100%;
+  border: none;
+  background-color: #fff;
+  text-align: right;
+  margin: auto 0 10px;
+  color: #999999;
+  font-size: 13px;
+  font-weight: 500;
+  padding: 0 5px 0 ;
+}
+
+.input__title {
+  margin: 0 0 10px;
+  color: #1e1e1e;
+  font-size: 13px;
+  font-weight: 500;
+  padding: 0 0 0 5px;
+}

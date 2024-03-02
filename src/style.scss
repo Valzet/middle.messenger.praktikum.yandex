@@ -7,12 +7,10 @@ html, body {
 }
 
 body {
+  font-family: $font-body;
   font: $font-regular;
   background-color: $text-bgcolor;
   color: $text-color;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 a {
