@@ -42,6 +42,13 @@ document.addEventListener("click", (e) => {
   }
 });
 
+//todo перенести в helpers
+function resolvePath(path:string) {
+  return path;
+}
+
+Handlebars.registerHelper('resolve', resolvePath);
+
 window.addEventListener("popstate", (event) => {
   const page = event.state.page;
   if (page) {

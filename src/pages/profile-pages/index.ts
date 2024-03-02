@@ -2,8 +2,9 @@ export { ProfilePage } from './profile-page';
 export {ProfileEditPage} from './profile-edit-page'
 export {ProfilePasswordPage} from './profile-password-page'
 import Handlebars from "handlebars";
+import avatarPlug from '../../assets/images/avatar-plug.png'
 Handlebars.registerHelper("profile", () => ({
-    avatar: "../assets/images/avatar-plug.png",
+    avatar: avatarPlug,
     email: "mail@mail.ru",
     login: "loginIvan",
     lastName: "Фамилия",
