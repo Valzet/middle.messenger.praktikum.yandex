@@ -1,6 +1,10 @@
 <section class="content">
   {{#with (profile)}}
-  {{> ProfileAvatar src=avatar alt="Логин"}}
+  <div class="avatar">
+    {{> ProfileAvatar src=avatar alt="Мой аватар"}}
+    <button class="avatar__overlay">Поменять
+      аватар</button>
+  </div>
   <h2>{{firstName}}</h2>
   {{/with}}
   {{#with (profile)}}

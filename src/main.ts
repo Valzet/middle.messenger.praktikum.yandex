@@ -1,11 +1,12 @@
 import Handlebars from "handlebars";
 import * as Components from "./components";
 import * as Pages from "./pages";
+import resolvePath from "./utils/helpers/index";
 
 const pages: { [key: string]: [string | Handlebars.TemplateDelegate<any>] } = {
   chat: [Pages.ChatPage],
   login: [Pages.LoginPage],
-  nav: [Pages.NavigationPage],
+  '': [Pages.NavigationPage],
   signin: [Pages.SigninPage],
   profile: [Pages.ProfilePage],
   editProfile: [Pages.ProfileEditPage],
@@ -30,22 +31,16 @@ function navigate(page: string) {
 function updateURL(page: string) {
   history.pushState({ page }, "", `/${page}`);
 }
-document.addEventListener("DOMContentLoaded", () => navigate("nav"));
+document.addEventListener("DOMContentLoaded", () => navigate(""));
 
 document.addEventListener("click", (e) => {
   const page = (e.target as Element)?.getAttribute("page");
   if (page) {
     navigate(page);
-
     e.preventDefault();
     e.stopImmediatePropagation();
   }
 });
-
-//todo перенести в helpers
-function resolvePath(path:string) {
-  return path;
-}
 
 Handlebars.registerHelper('resolve', resolvePath);
 
