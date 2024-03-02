@@ -1,0 +1,18 @@
+@import '../../assets/variables';
+
+.page {
+  margin: 10% auto;
+  width: 300px;
+ text-align: center;
+  color: $title-color;
+}
+
+
+.page__title {
+  font: $font-large;
+}
+
+.page__subtitle {
+  font: $font-regular;
+ padding-bottom: 50px;
+}

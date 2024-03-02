@@ -9,7 +9,9 @@ const pages: { [key: string]: [string | Handlebars.TemplateDelegate<any>] } = {
   signin: [Pages.SigninPage],
   profile: [Pages.ProfilePage],
   editProfile: [Pages.ProfileEditPage],
-  changePassword: [Pages.ProfilePasswordPage]
+  changePassword: [Pages.ProfilePasswordPage],
+  404: [Pages.NotFoundErrorPage],
+  500: [Pages.ServerErrorPage]
 };
 
 Object.entries(Components).forEach(([name, component]) => {

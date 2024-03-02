@@ -5,3 +5,5 @@ export { SigninPage } from './signin-page';
 export {ProfilePage} from './profile-pages'
 export {ProfileEditPage} from './profile-pages'
 export {ProfilePasswordPage} from './profile-pages'
+export {ServerErrorPage} from './error-pages'
+export {NotFoundErrorPage} from './error-pages'
