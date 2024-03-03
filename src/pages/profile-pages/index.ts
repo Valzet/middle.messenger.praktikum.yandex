@@ -7,8 +7,8 @@ Handlebars.registerHelper('profile', () => ({
   avatar: avatarPlug,
   email: 'mail@mail.ru',
   login: 'loginIvan',
-  lastName: 'Фамилия',
-  firstName: 'Имя',
+  second_name: 'Фамилия',
+  first_name: 'Имя',
   visibleName: 'Нагибатор2000',
   phone: '8-800-535-35-35',
 }));

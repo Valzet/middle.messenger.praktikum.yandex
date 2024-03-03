@@ -22,7 +22,7 @@ Object.entries(Components).forEach(([name, component]) => {
 function navigate(page: string) {
   const [source] = pages[page];
   const handlebarsFunct = Handlebars.compile(source);
-  document.body.innerHTML = handlebarsFunct(source);
+  document.querySelector('main')!.innerHTML = handlebarsFunct(source);
   updateURL(page);
 }
 function updateURL(page: string) {
