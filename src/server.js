@@ -5,15 +5,15 @@ import { dirname } from 'path';
 const app = express();
 const PORT = 3000;
 
-const __filename = fileURLToPath(import.meta.url)
+const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 app.use(express.static(path.join(__dirname, '../dist')));
 
 app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, './index.html'));
+  res.sendFile(path.join(__dirname, './index.html'));
 });
 
 app.listen(PORT, function () {
-    console.log(`Example app listening on port ${PORT}!`);
+  console.log(`Example app listening on port ${PORT}!`);
 });
