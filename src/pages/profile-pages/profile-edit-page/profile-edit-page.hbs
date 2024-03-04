@@ -1,0 +1,18 @@
+<section class="content">
+  {{#with (profile)}}
+  {{> ProfileAvatar src=avatar alt="Логин"}}
+  <h2>{{first_name}}</h2>
+  {{/with}}
+  {{#with (profile)}}
+  <ul class="list">
+    {{>ProfileInput inputName='Почта' type="text" value=email name=email }}
+    {{>ProfileInput inputName='Логин' type="text" value=login name=login }}
+    {{>ProfileInput inputName='Имя' type="text" value=first_name name=first_name }}
+    {{>ProfileInput inputName='Фамилия' type="text" value=second_name name=second_name }}
+    {{>ProfileInput inputName='Имя в чате' type="text" value=display_name name=display_name }}
+    {{>ProfileInput inputName='Телефон' type="text" value=phone name=phone }}
+  </ul>
+  {{/with}}
+  {{> Button text="Сохранить" page="profile" className="button_primary button_primary_size_small "}}
+
+</section>

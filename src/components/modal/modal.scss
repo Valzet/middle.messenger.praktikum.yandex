@@ -1,0 +1,23 @@
+.modal__overlay {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.modal__content {
+  background: #fff;
+  border-radius: 12px;
+  padding: 40px 30px;
+  width: 340px;
+  min-height: 257px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}

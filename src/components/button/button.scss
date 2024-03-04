@@ -1,0 +1,25 @@
+@import '../../assets/variables';
+
+.button {
+  height: 40px;
+  width: 100%;
+  text-align: center;
+  border-radius: 8px;
+  border: 0;
+  cursor: pointer;
+}
+
+.button_primary {
+  background-color: $button-bgcolor;
+  color: $button-color;
+}
+
+.button_secondary {
+  margin: 10px 0 0;
+  color: $button-secondary-color;
+  background-color: #fff;
+}
+
+.button_primary_size_small {
+  width: 50%;
+}
