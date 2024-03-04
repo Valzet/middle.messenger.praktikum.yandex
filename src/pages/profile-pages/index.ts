@@ -9,6 +9,6 @@ Handlebars.registerHelper('profile', () => ({
   login: 'loginIvan',
   second_name: 'Фамилия',
   first_name: 'Имя',
-  visibleName: 'Нагибатор2000',
+  display_name: 'Нагибатор2000',
   phone: '8-800-535-35-35',
 }));
