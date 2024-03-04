@@ -26,7 +26,7 @@ function navigate(page: string) {
   updateURL(page);
 }
 function updateURL(page: string) {
-  history.pushState({ page }, '', `/${page}`);
+  history.pushState({ page }, '', `${page}`);
 }
 document.addEventListener('DOMContentLoaded', () => navigate('/'));
 
