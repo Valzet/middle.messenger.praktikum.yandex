@@ -1,7 +1,6 @@
 import Handlebars from 'handlebars';
 import * as Components from './components';
 import * as Pages from './pages';
-import resolvePath from './utils/helpers/index';
 
 const pages: { [key: string]: [string | Handlebars.TemplateDelegate] } = {
   'chat': [Pages.ChatPage],
@@ -38,8 +37,6 @@ document.addEventListener('click', (e) => {
     e.stopImmediatePropagation();
   }
 });
-
-Handlebars.registerHelper('resolve', resolvePath);
 
 window.addEventListener('popstate', (event) => {
   const page = event.state.page;
