@@ -9,3 +9,5 @@ export { PageTitle } from './page-title';
 export { ProfileAvatar } from './profile';
 export { ProfileInput } from './profile';
 export { Modal } from './modal';
+export { SearchInput } from './search-input';
+export { ChatArea } from './chat-area';

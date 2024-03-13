@@ -7,8 +7,13 @@ import raccoon from '../../assets/images/enot_1.jpg';
 
 Handlebars.registerHelper('chat-page-list', () => {
   return [
-    { name: 'Опоссум', message: 'Изображение', unread: '2', avatar: opossum },
-    { name: 'Енот', message: 'Go на свалку!', avatar: raccoon },
-    { name: 'Барсук', message: 'А у кого ключи от сарая?', unread: '4', avatar: badger },
+    { name: 'Опоссум', message: 'Изображение', unread: '2', avatar: opossum, date: 'Вт' },
+    { name: 'Енот', message: 'Go на свалку!', avatar: raccoon, date: 'Чт' },
+    {
+      name: 'Барсук',
+      message: 'А у кого ключи от сарая?',
+      unread: '4',
+      avatar: badger,
+    },
   ];
 });

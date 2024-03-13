@@ -1,8 +1,17 @@
 <div class="chat-page">
-  {{#> ChatList className="chat-page__list" }}
+
+  <div class="chat-page__sidebar">
+    {{> Link page="profile" text="Профиль >" url='profile' className="link__align-right link__sidebar"}}
+    {{> SearchInput page="chat" placeholder="Поиск" className=""}}
+    {{#> ChatList className="chat-page__list" }}
     {{#each (chat-page-list)}}
-      {{> ChatItem }}
+    {{> ChatItem }}
     {{/each}}
-  {{/ ChatList }}
+    {{/ ChatList }}
+
+  </div>
+
+
+  {{!-- TODO удалить --}}
   {{> Link page="login" text="Назад к логину"}}
 </div>

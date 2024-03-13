@@ -1,13 +1,21 @@
 @import '../../assets/variables';
 
 .chat-item {
+  position: relative;
   &__line {
     height: 1px;
     background: $divider-line-color;
-    margin: 2px 0;
+    margin: 2px auto;
     padding: 0 10px;
-  }
+    width: 80%;
 
+  }
+  &__date {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    font-size: 9px;
+}
   &__block {
     height: 70px;
     width: 100%;
