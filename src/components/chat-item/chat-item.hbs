@@ -10,9 +10,9 @@
     {{/if}}
     <div class="chat-item__message"><span class="chat-item__message-text">{{ message }}</span></div>
 
-    <div class="chat-item__unread">
-      {{#if unread}}<span class="chat-item__unread-text">{{unread}}</span>{{/if}}
-    </div>
+     {{#if unread}} <div class="chat-item__unread">
+    <span class="chat-item__unread-text">{{unread}}</span>
+    </div>{{/if}}
   </div>
   <div class="chat-item__date">
     {{#if date}}<span class="chat-item__date-text">{{date}}</span>{{/if}}
