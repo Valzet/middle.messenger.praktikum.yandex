@@ -12,7 +12,7 @@ export class NavigationPage extends Block {
     this.children = {
       PageTitle: new PageTitle({
         title: 'Навигация по страницам',
-        className: 'page-title'
+        className: 'page-title',
       }),
       LoginLink: new Link({
         className: '',

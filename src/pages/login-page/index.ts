@@ -4,6 +4,7 @@ import Block from '../../utils/block/Block';
 import PageTitle from '../../components/page-title';
 import InputFieldBlock from '../../components/input-field';
 import ButtonBlock from '../../components/button';
+import LinkBlock from '../../components/link';
 export class LoginPage extends Block {
   constructor(props: { name?: string }) {
     super('div', { ...props });
@@ -20,20 +21,23 @@ export class LoginPage extends Block {
         title: 'Пароль',
         name: 'password',
         type: 'password',
-      }), InputLoginField: new InputFieldBlock({
+      }),
+      InputLoginField: new InputFieldBlock({
         className: 'login-page__input',
         title: 'Логин',
         name: 'login',
         type: 'login',
       }),
-      AuthButton : new ButtonBlock({
+      AuthButton: new ButtonBlock({
         text: 'Авторизоваться',
-        className: 'button button_primary'
+        className: 'button button_primary',
       }),
-      SignInButton : new ButtonBlock({
+      SignInButton: new LinkBlock({
         text: 'Нет аккаунта?',
-        className: 'button button_secondary'
-      })
+        className: 'button button_secondary',
+        url: 'signin',
+        page: 'signin'
+      }),
     };
 
     return this.compile(LoginPageBlock, this.props);

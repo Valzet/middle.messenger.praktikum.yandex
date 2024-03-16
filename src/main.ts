@@ -1,21 +1,6 @@
 import Block from './utils/block/Block';
 import * as Pages from './pages';
 
-// const pages: { [key: string]: [string | Handlebars.TemplateDelegate] } = {
-//   'chat': [Pages.ChatPage],
-//   'login': [Pages.LoginPage],
-//   '/': [Pages.NavigationPage],
-//   'signin': [Pages.SigninPage],
-//   'profile': [Pages.ProfilePage],
-//   'editProfile': [Pages.ProfileEditPage],
-//   'changePassword': [Pages.ProfilePasswordPage],
-//   404: [Pages.NotFoundErrorPage],
-//   500: [Pages.ServerErrorPage],
-// };
-
-// Object.entries(Components).forEach(([name, component]) => {
-//   Handlebars.registerPartial(name, <Handlebars.TemplateDelegate | string>component);
-// });
 
 // function navigate(page: string) {
 //   const [source] = pages[page];
@@ -68,8 +53,12 @@ const render = () => {
     case '/500':
       renderDOM('.app', new Pages.ServerErrorPage({ name: 'Server Error' }));
       break;
-      case '/signin': 
-      renderDOM('.app', new Pages.SinginPage({name: 'Signin page'}))
+    case '/signin':
+      renderDOM('.app', new Pages.SinginPage({ name: 'Signin page' }));
+      break;
+    case '/chat':
+      renderDOM('.app', new Pages.ChatPage({ name: 'Chat' }));
+      break;
   }
 };
 

@@ -1,2 +1,12 @@
 import './search-input.scss';
-export { default as SearchInput } from './search-input.hbs?raw';
+import SearchInput from './search-input.hbs?raw';
+import Block from '../../utils/block/Block';
+
+export default class SearchInputBlock extends Block {
+  constructor(props: any) {
+    super('div', props);
+  }
+  render() {
+    return this.compile(SearchInput, this.props, this.props.className);
+  }
+}
