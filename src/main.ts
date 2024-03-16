@@ -1,67 +1,32 @@
 import Block from './utils/block/Block';
 import * as Pages from './pages';
 
-
-// function navigate(page: string) {
-//   const [source] = pages[page];
-//   const handlebarsFunct = Handlebars.compile(source);
-//   document.querySelector('main')!.innerHTML = handlebarsFunct(source);
-//   updateURL(page);
-// }
-// function updateURL(page: string) {
-//   history.pushState({ page }, '', `${page}`);
-// }
-// document.addEventListener('DOMContentLoaded', () => navigate('/'));
-
-// document.addEventListener('click', (e) => {
-//   const page = (e.target as Element)?.getAttribute('page');
-//   if (page) {
-//     navigate(page);
-//     e.preventDefault();
-//     e.stopImmediatePropagation();
-//   }
-// });
-
-// window.addEventListener('popstate', (event) => {
-//   const page = event.state.page;
-//   if (page) {
-//     navigate(page);
-//   }
-// });
-
-const renderDOM = (query: string, block: Block) => {
-  const root = document.querySelector(query);
-  if (root) {
-    root.appendChild(block.getContent() as HTMLElement);
-  }
-  block.dispatchComponentDidMount();
-  return root;
-};
-
-const render = () => {
-  const { pathname } = window.location;
-  switch (pathname) {
-    case '/':
-      renderDOM('.app', new Pages.NavigationPage({ name: 'Navigation' }));
-      break;
-    case '/login':
-      renderDOM('.app', new Pages.LoginPage({ name: 'Login' }));
-      break;
-    case '/404':
-      renderDOM('.app', new Pages.NotFoundPage({ name: 'NotFound' }));
-      break;
-    case '/500':
-      renderDOM('.app', new Pages.ServerErrorPage({ name: 'Server Error' }));
-      break;
-    case '/signin':
-      renderDOM('.app', new Pages.SinginPage({ name: 'Signin page' }));
-      break;
-    case '/chat':
-      renderDOM('.app', new Pages.ChatPage({ name: 'Chat' }));
-      break;
-  }
-};
-
 document.addEventListener('DOMContentLoaded', function () {
+  const { pathname } = window.location;
+  const renderDOM = (query: string, block: Block) => {
+    const root = document.querySelector(query);
+    if (root) {
+      root.appendChild(block.getContent() as HTMLElement);
+    }
+    block.dispatchComponentDidMount();
+    return root;
+  };
+
+  const pages: { [key: string]: Block } = {
+    '/': new Pages.NavigationPage({ name: 'Navigation' }),
+    '/login': new Pages.LoginPage({ name: 'Login' }),
+    '/404': new Pages.NotFoundPage({ name: 'NotFound' }),
+    '/500': new Pages.ServerErrorPage({ name: 'Server Error' }),
+    '/signin': new Pages.SigninPage({ name: 'Signin page' }),
+    '/chat': new Pages.ChatPage({ name: 'Chat' }),
+  };
+  
+  const render = () => {
+    const Page = pages[pathname];
+    if (Page) {
+      renderDOM('.app', Page);
+    }
+  };
+
   render();
 });

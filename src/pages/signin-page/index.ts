@@ -1,11 +1,11 @@
 import './signin-page.scss';
-import SigninPage from './signin-page.hbs?raw';
+import SigninPageBlock from './signin-page.hbs?raw';
 import Block from 'utils/block/Block';
 import PageTitle from 'components/page-title';
 import InputFieldBlock from 'components/input-field';
 import ButtonBlock from 'components/button';
 import LinkBlock from 'components/link';
-export class SinginPage extends Block {
+export class SigninPage extends Block {
   constructor(props: { name?: string }) {
     super('div', { ...props });
   }
@@ -70,6 +70,6 @@ export class SinginPage extends Block {
       }),
     };
 
-    return this.compile(SigninPage, this.props);
+    return this.compile(SigninPageBlock, this.props);
   }
 }
