@@ -1,2 +1,11 @@
 import './input-field.scss';
-export { default as InputField } from './input-field.hbs?raw';
+import InputField from './input-field.hbs?raw';
+import Block from '../../utils/block/Block';
+export default class InputFieldBlock extends Block {
+  constructor(props: any) {
+    super('div', props);
+  }
+  render() {
+    return this.compile(InputField, this.props, this.props.className);
+  }
+}

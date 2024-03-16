@@ -12,7 +12,7 @@
   color: $link-color;
   text-decoration: none;
   cursor: pointer;
-
+  list-style: none;
   &:hover {
     text-decoration: underline;
   }

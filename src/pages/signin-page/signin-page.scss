@@ -1,3 +1,4 @@
+@import '../../assets/variables';
 .login-page {
   width: 280px;
   min-height: 550px;
@@ -11,4 +12,17 @@
   &__input {
     margin-top: 16px;
   }
+}
+
+
+.dialog-wrapper {
+  background: $dialog-bgcolor;
+  box-shadow: $dialog-shadow;
+  border-radius: 12px;
+  padding: 30px;
+  margin: 120px auto 0;
+  max-width: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
