@@ -1,7 +1,7 @@
 import '../error-pages.scss';
 import ServerErrorPageBlock from './server-error-page.hbs?raw';
-import Link from '../../../components/link';
-import Block from '../../../utils/block/Block';
+import Link from 'components/link';
+import Block from 'utils/block/Block';
 
 export class ServerErrorPage extends Block {
   constructor(props: { name?: string }) {

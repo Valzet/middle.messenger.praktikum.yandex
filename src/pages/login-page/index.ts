@@ -1,10 +1,10 @@
 import './login-page.scss';
 import LoginPageBlock from './login-page.hbs?raw';
-import Block from '../../utils/block/Block';
-import PageTitle from '../../components/page-title';
-import InputFieldBlock from '../../components/input-field';
-import ButtonBlock from '../../components/button';
-import LinkBlock from '../../components/link';
+import Block from 'utils/block/Block';
+import PageTitle from 'components/page-title';
+import InputFieldBlock from 'components/input-field';
+import ButtonBlock from 'components/button';
+import LinkBlock from 'components/link';
 export class LoginPage extends Block {
   constructor(props: { name?: string }) {
     super('div', { ...props });

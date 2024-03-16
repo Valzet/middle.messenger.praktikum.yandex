@@ -1,8 +1,8 @@
-import Block from '../../utils/block/Block';
+import Block from 'utils/block/Block';
 import './navigation-page.scss';
 import NavigationPageBlock from './navigation-page.hbs?raw';
-import PageTitle from '../../components/page-title';
-import Link from '../../components/link';
+import PageTitle from 'components/page-title';
+import Link from 'components/link';
 export class NavigationPage extends Block {
   constructor(props: { name?: string }) {
     super('div', { ...props });

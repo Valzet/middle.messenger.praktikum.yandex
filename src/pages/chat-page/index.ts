@@ -2,9 +2,9 @@ import Handlebars from 'handlebars';
 import './chat-page.scss';
 import ChatPageBlock from './chat-page.hbs?raw';
 import { chatData } from '../../data/chatData';
-import Block from '../../utils/block/Block';
-import Link from '../../components/link';
-import SearchInputBlock from '../../components/search-input';
+import Block from 'utils/block/Block';
+import Link from 'components/link';
+import SearchInputBlock from 'components/search-input';
 Handlebars.registerHelper('chat-page-list', () => {
   return chatData;
 });
