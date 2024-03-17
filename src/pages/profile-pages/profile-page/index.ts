@@ -6,16 +6,34 @@ import ProfileAvatar from 'components/profile/profile-avatar';
 import ProfileUserTitleBlock from 'components/profile/profile-title';
 import { user } from 'data/tempData';
 import ProfileInput from 'components/profile/profile-input';
+import Modal from 'components/modal';
 export class ProfilePage extends Block {
   constructor(props: { name?: string }) {
     super('div', { ...props });
+
+    this.props.isModalOpen = false;
   }
+  handleOpenModal = (event: Event) => {
+    if (event.target instanceof HTMLElement) {
+      if (event.target.classList.contains('modal__content')) {
+        return;
+      }
+      const element = document.querySelector(`.modal`);
+      if (element) {
+        element.classList.toggle('hidden');
+      }
+    }
+  };
 
   render() {
     this.children = {
       ProfileAvatar: new ProfileAvatar({
         alt: 'Мой аватар',
         src: user.avatar,
+        id: this.props.id,
+        events: {
+          mousedown: (e: Event) => this.handleOpenModal(e),
+        },
       }),
       UserTitle: new ProfileUserTitleBlock({
         username: user.first_name,
@@ -90,6 +108,11 @@ export class ProfilePage extends Block {
           href: 'login',
         },
         text: 'Выйти',
+      }),
+      Modal: new Modal({
+        events: {
+          click: (e: Event) => this.handleOpenModal(e),
+        },
       }),
     };
 
