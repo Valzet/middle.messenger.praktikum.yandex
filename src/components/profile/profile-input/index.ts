@@ -1,4 +1,4 @@
-import './input.scss';
+import '../profile.scss';
 import ProfileInputBlock from './input.hbs?raw';
 import Block from 'utils/block/Block';
 
