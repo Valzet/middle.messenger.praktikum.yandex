@@ -1,7 +1,6 @@
 import '../profile-page.scss';
 import ProfileEditPageBlock from './profile-edit-page.hbs?raw';
 import Block from 'utils/block/Block';
-import LinkBlock from 'components/link';
 import ProfileAvatar from 'components/profile/profile-avatar';
 import ProfileUserTitleBlock from 'components/profile/profile-title';
 import { user } from 'data/tempData';

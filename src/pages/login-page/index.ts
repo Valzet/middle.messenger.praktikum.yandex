@@ -26,7 +26,9 @@ export class LoginPage extends Block {
         className: 'login-page__input',
         title: 'Логин',
         name: 'login',
-        type: 'login',
+        type: 'login', events: {
+          blur: (e: Event) => console.log(e),
+        },
       }),
       AuthButton: new ButtonBlock({
         text: 'Авторизоваться',

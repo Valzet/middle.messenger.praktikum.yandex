@@ -67,7 +67,7 @@ export class HTTPTransport {
   }
 }
 
-export async function fetchWithRetry(
+export async function refetch(
   url: RequestUrlType,
   options: RequestOptionsType,
   retryCount = 3,
@@ -79,7 +79,7 @@ export async function fetchWithRetry(
     return response;
   } catch (err) {
     if (retryCount > 0) {
-      return fetchWithRetry(url, options, retryCount - 1);
+      return refetch(url, options, retryCount - 1);
     } else {
       throw new Error('Не удалось отправить запрос');
     }
