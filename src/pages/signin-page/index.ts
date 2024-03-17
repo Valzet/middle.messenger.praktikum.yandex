@@ -62,11 +62,11 @@ export class SigninPage extends Block {
         text: 'Зарегистрироваться',
         className: 'button button_primary',
       }),
-      AuthButton: new LinkBlock({
+      AuthLink: new LinkBlock({
         text: 'Войти',
-        className: 'button button_secondary',
+        className: 'button_secondary',
         page: 'login',
-        url: 'login'
+        url: 'login',
       }),
     };
 

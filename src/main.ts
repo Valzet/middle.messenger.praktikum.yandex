@@ -17,10 +17,12 @@ document.addEventListener('DOMContentLoaded', function () {
     '/login': new Pages.LoginPage({ name: 'Login' }),
     '/404': new Pages.NotFoundPage({ name: 'NotFound' }),
     '/500': new Pages.ServerErrorPage({ name: 'Server Error' }),
-    '/signin': new Pages.SigninPage({ name: 'Signin page' }),
+    '/signin': new Pages.SigninPage({ name: 'Signin' }),
     '/chat': new Pages.ChatPage({ name: 'Chat' }),
+    '/profile': new Pages.ProfilePage({ name: 'Profile' }),
+    '/changePassword': new Pages.ProfileChangePasswordPage({ name: 'Change password' }),
   };
-  
+
   const render = () => {
     const Page = pages[pathname];
     if (Page) {

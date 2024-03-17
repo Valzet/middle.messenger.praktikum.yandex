@@ -55,19 +55,19 @@ class Block {
     return { children, props };
   }
 
-  _registerEvents(eventBus: EventBus) {
+  private _registerEvents(eventBus: EventBus) {
     eventBus.on(Block.EVENTS.INIT, this._init.bind(this));
     eventBus.on(Block.EVENTS.FLOW_CDM, this._componentDidMount.bind(this));
     eventBus.on(Block.EVENTS.FLOW_CDU, this._componentDidUpdate.bind(this));
     eventBus.on(Block.EVENTS.FLOW_RENDER, this._render.bind(this));
   }
 
-  _createResources() {
+  private _createResources() {
     const { tag } = this._meta;
     this._element = this._createDocumentElement(tag);
   }
 
-  _init() {
+  private _init() {
     this._createResources();
     this.init();
     this.eventBus().emit(Block.EVENTS.FLOW_RENDER);
@@ -75,7 +75,7 @@ class Block {
   }
   init() {}
 
-  _componentDidMount(): void {
+  private _componentDidMount(): void {
     this.componentDidMount();
   }
 
@@ -85,7 +85,7 @@ class Block {
     this.eventBus().emit(Block.EVENTS.FLOW_CDM);
   }
 
-  _componentDidUpdate(oldProps: Props, newProps: Props): void {
+  private _componentDidUpdate(oldProps: Props, newProps: Props): void {
     if (this.componentDidUpdate(oldProps, newProps)) {
       this.eventBus().emit(Block.EVENTS.FLOW_RENDER);
     }
@@ -108,12 +108,12 @@ class Block {
     return this._element;
   }
 
-  _render() {
-    const block = this.render();
+  private _render() {
+    const block: unknown = this.render();
     this._removeEvents();
     if (this._element) {
       this._element.innerHTML = '';
-      this._element.appendChild(block);
+      this._element.appendChild(block as Node);
     }
     this._addEvents();
   }
@@ -145,15 +145,13 @@ class Block {
     return fragment.content;
   }
 
-  protected render(): DocumentFragment {
-    return new DocumentFragment();
-  }
+  render() {}
 
   getContent(): HTMLElement | null {
     return this.element;
   }
 
-  _makePropsProxy(props: Props) {
+  private _makePropsProxy(props: Props) {
     return new Proxy(props, {
       get(target: Props, prop: string) {
         const value = target[prop];
@@ -172,14 +170,14 @@ class Block {
     });
   }
 
-  _createDocumentElement(tag: string): HTMLElement {
+  private _createDocumentElement(tag: string): HTMLElement {
     const element = document.createElement(tag);
     element.setAttribute('data-id', this.id);
 
     return element;
   }
 
-  _addEvents(): void {
+  private _addEvents(): void {
     const { events = {} } = this.props;
     if (events) {
       Object.entries(events as Record<string, () => void>).forEach(([eventName, callback]) => {
@@ -188,7 +186,7 @@ class Block {
     }
   }
 
-  _removeEvents(): void {
+  private _removeEvents(): void {
     const { events = {} } = this.props;
     if (events) {
       Object.entries(events as Record<string, () => void>).forEach(([eventName, callback]) => {

@@ -12,3 +12,13 @@ export const chatData = [
     avatar: badger,
   },
 ];
+
+export const user = {
+  first_name: 'Иван',
+  second_name: 'Иванов',
+  display_name: 'Нагибатор777',
+  phone: '777777777',
+  login: 'loginIvan777',
+  email: 'mail@mail.ru',
+  avatar: 'https://avatars.mds.yandex.net/get-znatoki/1540166/2a0000016cc265bcd1b801b1b2c44dc58085/w1200',
+};
