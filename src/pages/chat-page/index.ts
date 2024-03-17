@@ -5,9 +5,8 @@ import { chatData } from '../../data/tempData';
 import Block from 'utils/block/Block';
 import Link from 'components/link';
 import SearchInputBlock from 'components/search-input';
-Handlebars.registerHelper('chat-page-list', () => {
-  return chatData;
-});
+import ChatItem from 'components/chat-item';
+import ChatList from 'components/chat-list';
 
 export class ChatPage extends Block {
   constructor(props: any) {
@@ -32,6 +31,10 @@ export class ChatPage extends Block {
       SearchInput: new SearchInputBlock({
         placeholder: 'Поиск',
       }),
+
+      ChatList: new ChatList ('div',{
+        chats: chatData.map((el, index) => new ChatItem('div',{...el, attr: {class: 'chat-item'}})),
+      })
     };
     return this.compile(ChatPageBlock, this.props, 'chat-page');
   }
