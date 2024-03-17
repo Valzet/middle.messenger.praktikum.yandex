@@ -128,7 +128,8 @@ class Block {
   protected compile(template: string, props: Props, className?: string | unknown) {
     const propsAndStubs = { ...props };
     Object.entries(this.children).forEach(([key, child]) => {
-      propsAndStubs[key] = `<div data-id="${child.id}"></div>`;
+      console.log(this.children)
+      propsAndStubs[key] = `<${child._meta.tag} data-id="${child.id}"></${child._meta.tag}>`;
     });
     this.setClassName(className);
     const fragment = this._createDocumentElement('template') as HTMLTemplateElement;
