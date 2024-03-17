@@ -33,7 +33,7 @@ export class ChatPage extends Block {
       }),
 
       ChatList: new ChatList ('div',{
-        chats: chatData.map((el, index) => new ChatItem('div',{...el, attr: {class: 'chat-item'}})),
+        chats: chatData
       })
     };
     return this.compile(ChatPageBlock, this.props, 'chat-page');
