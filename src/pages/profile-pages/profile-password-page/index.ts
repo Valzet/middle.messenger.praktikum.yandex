@@ -4,6 +4,7 @@ import Block from 'utils/block/Block';
 import ProfileAvatar from 'components/profile/profile-avatar';
 import { user } from 'data/tempData';
 import ProfileInput from 'components/profile/profile-input';
+import ButtonBlock from 'components/button';
 export class ProfileChangePasswordPage extends Block {
   constructor(props: { name?: string }) {
     super('div', { ...props });
@@ -19,17 +20,23 @@ export class ProfileChangePasswordPage extends Block {
         name: 'oldPassword',
         type: 'password',
         inputName: 'Старый пароль',
+        className: 'input-field__bottom-border ',
       }),
       NewPassword: new ProfileInput({
         name: 'password',
         type: 'password',
         value: '',
-        inputName: 'email',
+        inputName: 'Новый пароль',
+        className: 'input-field__bottom-border ',
       }),
       NewPasswordRepeat: new ProfileInput({
         name: 'password_repeat',
         type: 'password',
         inputName: 'Повторите пароль',
+      }),
+      ChangePasswordBtn: new ButtonBlock({
+        text: 'Сохранить',
+        className: 'button button_primary button_primary_size_small',
       }),
     };
 

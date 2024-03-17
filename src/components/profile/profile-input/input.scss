@@ -3,13 +3,13 @@
   width: 100%;
   display: flex;
   justify-content: space-between;
-  border-bottom: 1px solid #eaeaea;
-}
-
-.input__wrapper:last-of-type {
   border-bottom: none;
 }
 
+.input-field__bottom-border {
+  border-bottom: 1px solid #eaeaea;
+  margin: 0 0 10px;
+}
 .input {
   height: 100%;
   border: none;

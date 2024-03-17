@@ -6,6 +6,7 @@ import LinkBlock from 'components/link';
 import ProfileAvatar from 'components/profile/profile-avatar';
 import ProfileUserTitleBlock from 'components/profile/profile-title';
 import { user } from 'data/tempData';
+import ProfileInput from 'components/profile/profile-input';
 export class ProfilePage extends Block {
   constructor(props: { name?: string }) {
     super('div', { ...props });
@@ -20,8 +21,8 @@ export class ProfilePage extends Block {
       UserTitle: new ProfileUserTitleBlock({
         username: user.first_name,
       }),
-      InputLoginField: new InputFieldBlock({
-        className: 'login-page__input',
+      InputLoginField: new ProfileInput({
+        className: 'input-field__bottom-border',
         title: 'Логин',
         name: 'login',
         type: 'text',
@@ -29,8 +30,8 @@ export class ProfilePage extends Block {
         disabled: true,
         inputName: 'login',
       }),
-      InputEmailField: new InputFieldBlock({
-        className: 'login-page__input',
+      InputEmailField: new ProfileInput({
+        className: 'input-field__bottom-border',
         title: 'Почта',
         name: 'email',
         type: 'text',
@@ -38,8 +39,8 @@ export class ProfilePage extends Block {
         disabled: true,
         inputName: 'email',
       }),
-      ProfileFirstNameInput: new InputFieldBlock({
-        className: 'login-page__input',
+      ProfileFirstNameInput: new ProfileInput({
+        className: 'input-field__bottom-border',
         title: 'Имя',
         name: 'first_name',
         type: 'text',
@@ -47,8 +48,8 @@ export class ProfilePage extends Block {
         disabled: true,
         inputName: 'first_name',
       }),
-      ProfileSecondNameInput: new InputFieldBlock({
-        className: 'login-page__input',
+      ProfileSecondNameInput: new ProfileInput({
+        className: 'input-field__bottom-border',
         title: 'Фамилия',
         name: 'second_name',
         type: 'text',
@@ -56,8 +57,8 @@ export class ProfilePage extends Block {
         disabled: true,
         inputName: 'second_name',
       }),
-      ProfileDisplayNameInput: new InputFieldBlock({
-        className: 'login-page__input',
+      ProfileDisplayNameInput: new ProfileInput({
+        className: 'input-field__bottom-border',
         title: 'Почта',
         name: 'display_name',
         type: 'text',
@@ -65,8 +66,8 @@ export class ProfilePage extends Block {
         disabled: true,
         inputName: 'display_name',
       }),
-      ProfilePhoneInput: new InputFieldBlock({
-        className: 'login-page__input',
+      ProfilePhoneInput: new ProfileInput({
+        className: 'input-field__bottom-border',
         title: 'Телефон',
         name: 'phone',
         type: 'text',
