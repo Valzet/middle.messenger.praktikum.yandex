@@ -23,10 +23,13 @@
 }
 
 .link__sidebar {
-  height: 0;
+  height: 10px;
   margin: 22px 10px 22px auto;
   color: #999999;
   font-size: 12px;
+  display: block;
+  text-align: right;
+  width: fit-content;
 }
 
 .link__right_type_right {

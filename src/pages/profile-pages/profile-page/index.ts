@@ -69,22 +69,27 @@ export class ProfilePage extends Block {
         inputName: 'Телефон',
       }),
       EditProfileLink: new LinkBlock({
-        className: 'link__right_type_right',
+        attr: {
+          class: '',
+          href: 'editProfile',
+        },
+
         text: 'Изменить данные',
-        page: 'editProfile',
-        url: 'editProfile',
       }),
       EditPasswordLink: new LinkBlock({
-        className: 'link__right_type_right',
+        attr: {
+          class: '',
+          href: 'changePassword',
+        },
+
         text: 'Изменить пароль',
-        page: 'changePassword',
-        url: 'changePassword',
       }),
       ExitLink: new LinkBlock({
-        className: 'link__right_type_right link__secondary',
+        attr: {
+          class: 'link__right_type_right link__secondary',
+          href: 'login',
+        },
         text: 'Выйти',
-        page: 'login',
-        url: 'login',
       }),
     };
 

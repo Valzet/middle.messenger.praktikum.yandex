@@ -15,52 +15,60 @@ export class NavigationPage extends Block {
         className: 'page-title',
       }),
       LoginLink: new Link({
-        className: '',
+        attr: {
+          href: 'login',
+          class: 'link',
+        },
         text: 'Логин',
-        page: 'login',
-        url: 'login',
       }),
       SigninLink: new Link({
-        className: '',
+        attr: {
+          href: 'signin',
+          class: 'link',
+        },
         text: 'Регистрация',
-        page: 'signin',
-        url: 'signin',
       }),
       ChatLink: new Link({
-        className: '',
+        attr: {
+          href: 'chat',
+          class: 'link',
+        },
         text: 'Чат',
-        page: 'chat',
-        url: 'chat',
       }),
       ProfileLink: new Link({
-        className: '',
+        attr: {
+          href: 'profile',
+          class: 'link',
+        },
         text: 'Профиль',
-        page: 'profile',
-        url: 'profile',
       }),
       EditProfileLink: new Link({
-        className: '',
+        attr: {
+          href: 'editProfile',
+          class: 'link',
+        },
         text: 'Изменить профиль',
-        page: 'editProfile',
-        url: 'editProfile',
       }),
       ChangePasswordLink: new Link({
-        className: '',
+        attr: {
+          href: 'changePassword',
+          class: 'link',
+        },
         text: 'Изменить пароль',
-        page: 'changePassword',
-        url: 'changePassword',
       }),
       NotFoundLink: new Link({
-        className: '',
+        attr: {
+          href: '404',
+          class: 'link',
+        },
         text: '404',
-        page: '404',
-        url: '404',
       }),
       ServerErrorLink: new Link({
-        className: '',
+        attr: {
+          href: '500',
+          class: 'link',
+        },
         text: '500',
-        page: '500',
-        url: '500',
       }),
     };
 

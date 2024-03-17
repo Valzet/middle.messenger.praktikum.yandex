@@ -17,19 +17,19 @@ export class ChatPage extends Block {
   render() {
     this.children = {
       ProfileLink: new Link({
-        className: 'link__align-right link__sidebar',
+        attr: {
+          class: 'link__align-right link__sidebar',
+          href: 'profile',
+        },
         text: 'Профиль >',
-        page: 'profile',
-        url: 'profile',
       }),
       ReturnLink: new Link({
-        className: '',
+        attr: {
+          href: 'login',
+        },
         text: 'Назад к логину',
-        page: 'login',
-        url: 'login',
       }),
       SearchInput: new SearchInputBlock({
-        page: 'chat',
         placeholder: 'Поиск',
       }),
     };

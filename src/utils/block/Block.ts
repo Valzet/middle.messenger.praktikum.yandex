@@ -114,8 +114,9 @@ class Block {
     if (this._element) {
       this._element.innerHTML = '';
       this._element.appendChild(block as Node);
+      this._addEvents();
+      this._addAttributes();
     }
-    this._addEvents();
   }
   setClassName(className?: string | unknown) {
     if (typeof className === 'string') {
@@ -126,7 +127,7 @@ class Block {
     }
   }
   protected compile(template: string, props: Props, className?: string | unknown) {
-    const propsAndStubs = { ...props };
+    const propsAndStubs: Record<string, unknown> = { ...props };
     Object.entries(this.children).forEach(([key, child]) => {
       propsAndStubs[key] = `<${child._meta.tag} data-id="${child.id}"></${child._meta.tag}>`;
     });
@@ -175,6 +176,15 @@ class Block {
     element.setAttribute('data-id', this.id);
 
     return element;
+  }
+
+  private _addAttributes() {
+    const { attr } = this.props;
+    if (attr && typeof attr === 'object') {
+      Object.entries(attr).forEach(([key, value]) => {
+        this._element?.setAttribute(key, value as string);
+      });
+    }
   }
 
   private _addEvents(): void {

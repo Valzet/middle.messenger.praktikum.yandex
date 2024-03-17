@@ -11,10 +11,11 @@ export class ServerErrorPage extends Block {
   render() {
     this.children = {
       Link: new Link({
-        className: 'list-element',
+        attr: {
+          class: 'link',
+          href: '/',
+        },
         text: 'Назад',
-        page: 'chat',
-        url: 'chat',
       }),
     };
 

@@ -63,9 +63,12 @@ export class SigninPage extends Block {
         className: 'button button_primary',
       }),
       AuthLink: new LinkBlock({
+        attr: {
+          class: 'link',
+          href: 'login',
+        },
         text: 'Войти',
         className: 'button_secondary',
-        page: 'login',
         url: 'login',
       }),
     };
