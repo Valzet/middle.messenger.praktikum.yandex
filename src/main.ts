@@ -21,6 +21,7 @@ document.addEventListener('DOMContentLoaded', function () {
     '/chat': new Pages.ChatPage({ name: 'Chat' }),
     '/profile': new Pages.ProfilePage({ name: 'Profile' }),
     '/changePassword': new Pages.ProfileChangePasswordPage({ name: 'Change password' }),
+    '/editProfile': new Pages.ProfileEditPage({ name: 'Profile edit' }),
   };
 
   const render = () => {

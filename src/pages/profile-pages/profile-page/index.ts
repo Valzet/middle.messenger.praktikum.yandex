@@ -1,7 +1,6 @@
 import '../profile-page.scss';
 import ProfilePageBlock from './profile-page.hbs?raw';
 import Block from 'utils/block/Block';
-import InputFieldBlock from 'components/input-field';
 import LinkBlock from 'components/link';
 import ProfileAvatar from 'components/profile/profile-avatar';
 import ProfileUserTitleBlock from 'components/profile/profile-title';
@@ -23,57 +22,51 @@ export class ProfilePage extends Block {
       }),
       InputLoginField: new ProfileInput({
         className: 'input-field__bottom-border',
-        title: 'Логин',
         name: 'login',
         type: 'text',
         value: user.login,
         disabled: true,
-        inputName: 'login',
+        inputName: 'Логин',
       }),
       InputEmailField: new ProfileInput({
         className: 'input-field__bottom-border',
-        title: 'Почта',
         name: 'email',
         type: 'text',
         value: user.email,
         disabled: true,
-        inputName: 'email',
+        inputName: 'Почта',
       }),
       ProfileFirstNameInput: new ProfileInput({
         className: 'input-field__bottom-border',
-        title: 'Имя',
         name: 'first_name',
         type: 'text',
         value: user.first_name,
         disabled: true,
-        inputName: 'first_name',
+        inputName: 'Имя',
       }),
       ProfileSecondNameInput: new ProfileInput({
         className: 'input-field__bottom-border',
-        title: 'Фамилия',
         name: 'second_name',
         type: 'text',
         value: user.second_name,
         disabled: true,
-        inputName: 'second_name',
+        inputName: 'Фамилия',
       }),
       ProfileDisplayNameInput: new ProfileInput({
         className: 'input-field__bottom-border',
-        title: 'Почта',
         name: 'display_name',
         type: 'text',
         value: user.display_name,
         disabled: true,
-        inputName: 'display_name',
+        inputName: 'Почта',
       }),
       ProfilePhoneInput: new ProfileInput({
         className: 'input-field__bottom-border',
-        title: 'Телефон',
         name: 'phone',
         type: 'text',
         value: user.phone,
         disabled: true,
-        inputName: 'phone',
+        inputName: 'Телефон',
       }),
       EditProfileLink: new LinkBlock({
         className: 'link__right_type_right',

@@ -5,6 +5,7 @@ import { NotFoundPage, ServerErrorPage } from './error-pages';
 import { ChatPage } from './chat-page';
 import { ProfilePage } from './profile-pages/profile-page';
 import { ProfileChangePasswordPage } from './profile-pages/profile-password-page';
+import { ProfileEditPage } from './profile-pages';
 export {
   NavigationPage,
   LoginPage,
@@ -14,4 +15,5 @@ export {
   ChatPage,
   ProfilePage,
   ProfileChangePasswordPage,
+  ProfileEditPage,
 };
