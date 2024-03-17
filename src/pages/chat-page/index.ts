@@ -32,9 +32,9 @@ export class ChatPage extends Block {
         placeholder: 'Поиск',
       }),
 
-      ChatList: new ChatList ('div',{
-        chats: chatData
-      })
+      ChatList: new ChatList('div', {
+        chats: chatData,
+      }),
     };
     return this.compile(ChatPageBlock, this.props, 'chat-page');
   }

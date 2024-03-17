@@ -16,6 +16,7 @@
   border-bottom: 1px solid grey;
   border-radius: 6px;
   &__element {
+    max-width: 180px;
     border: none;
     padding: 0;
     width: 100%;
