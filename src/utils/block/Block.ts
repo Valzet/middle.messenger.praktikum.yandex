@@ -128,7 +128,6 @@ class Block {
   protected compile(template: string, props: Props, className?: string | unknown) {
     const propsAndStubs = { ...props };
     Object.entries(this.children).forEach(([key, child]) => {
-      console.log(this.children)
       propsAndStubs[key] = `<${child._meta.tag} data-id="${child.id}"></${child._meta.tag}>`;
     });
     this.setClassName(className);
