@@ -1,49 +1,35 @@
-import Handlebars from 'handlebars';
-import * as Components from './components';
+import Block from './utils/block/Block';
 import * as Pages from './pages';
-import resolvePath from './utils/helpers/index';
 
-const pages: { [key: string]: [string | Handlebars.TemplateDelegate] } = {
-  'chat': [Pages.ChatPage],
-  'login': [Pages.LoginPage],
-  '/': [Pages.NavigationPage],
-  'signin': [Pages.SigninPage],
-  'profile': [Pages.ProfilePage],
-  'editProfile': [Pages.ProfileEditPage],
-  'changePassword': [Pages.ProfilePasswordPage],
-  404: [Pages.NotFoundErrorPage],
-  500: [Pages.ServerErrorPage],
-};
+document.addEventListener('DOMContentLoaded', function () {
+  const { pathname } = window.location;
+  const renderDOM = (query: string, block: Block) => {
+    const root = document.querySelector(query);
+    if (root) {
+      root.appendChild(block.getContent() as HTMLElement);
+    }
+    block.dispatchComponentDidMount();
+    return root;
+  };
 
-Object.entries(Components).forEach(([name, component]) => {
-  Handlebars.registerPartial(name, <Handlebars.TemplateDelegate | string>component);
-});
+  const pages: { [key: string]: Block } = {
+    '/': new Pages.NavigationPage({ name: 'Navigation' }),
+    '/login': new Pages.LoginPage({ name: 'Login' }),
+    '/404': new Pages.NotFoundPage({ name: 'NotFound' }),
+    '/500': new Pages.ServerErrorPage({ name: 'Server Error' }),
+    '/signin': new Pages.SigninPage({ name: 'Signin' }),
+    '/chat': new Pages.ChatPage({ name: 'Chat' }),
+    '/profile': new Pages.ProfilePage({ name: 'Profile' }),
+    '/changePassword': new Pages.ProfileChangePasswordPage({ name: 'Change password' }),
+    '/editProfile': new Pages.ProfileEditPage({ name: 'Profile edit' }),
+  };
 
-function navigate(page: string) {
-  const [source] = pages[page];
-  const handlebarsFunct = Handlebars.compile(source);
-  document.querySelector('main')!.innerHTML = handlebarsFunct(source);
-  updateURL(page);
-}
-function updateURL(page: string) {
-  history.pushState({ page }, '', `${page}`);
-}
-document.addEventListener('DOMContentLoaded', () => navigate('/'));
+  const render = () => {
+    const Page = pages[pathname];
+    if (Page) {
+      renderDOM('.app', Page);
+    }
+  };
 
-document.addEventListener('click', (e) => {
-  const page = (e.target as Element)?.getAttribute('page');
-  if (page) {
-    navigate(page);
-    e.preventDefault();
-    e.stopImmediatePropagation();
-  }
-});
-
-Handlebars.registerHelper('resolve', resolvePath);
-
-window.addEventListener('popstate', (event) => {
-  const page = event.state.page;
-  if (page) {
-    navigate(page);
-  }
+  render();
 });

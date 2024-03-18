@@ -1,4 +1,4 @@
-.modal__overlay {
+.modal {
   width: 100vw;
   height: 100vh;
   overflow: hidden;
@@ -8,6 +8,8 @@
   position: absolute;
   left: 0;
   top: 0;
+  z-index: 100;
+  background: #00000985;
 }
 
 .modal__content {
@@ -20,4 +22,8 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+}
+
+.hidden {
+  display: none;
 }

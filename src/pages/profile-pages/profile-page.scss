@@ -61,3 +61,25 @@
   opacity: 1;
   cursor: pointer;
 }
+
+.buttons {
+  margin: 20px 0 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.buttons__links {
+  margin: 20px 0 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.profile-list {
+  margin: 40px 0;
+  width: 100%;
+  padding: 0;
+}

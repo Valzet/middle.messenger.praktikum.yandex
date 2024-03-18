@@ -1,8 +1,9 @@
-<div class="chat-page">
-  {{#> ChatList className="chat-page__list" }}
-    {{#each (chat-page-list)}}
-      {{> ChatItem }}
-    {{/each}}
-  {{/ ChatList }}
-  {{> Link page="login" text="Назад к логину"}}
+<div class='chat-page__sidebar'>
+  {{{ProfileLink}}}
+  {{{SearchInput}}}
+  {{{ChatList}}}
 </div>
+
+{{! TODO удалить }}
+{{{ReturnLink}}}
+
