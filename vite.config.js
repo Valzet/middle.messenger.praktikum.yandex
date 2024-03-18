@@ -10,7 +10,7 @@ const __dirname = dirname(__filename);
 export default defineConfig({
   root: resolve(__dirname, './src'),
   build: {
-    outDir: resolve( './dist'),
+    outDir: resolve(__dirname, './dist'),
   },
   plugins: [handlebars()],
   resolve: {
