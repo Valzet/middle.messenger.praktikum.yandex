@@ -1,6 +1,5 @@
 import handlebars from 'vite-plugin-handlebars';
 import { defineConfig } from "vite";
-import { resolve } from 'path';
 import path from 'path';
 import { resolve, dirname } from 'path';
 import { fileURLToPath } from 'url';
