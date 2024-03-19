@@ -3,9 +3,7 @@ import { NavigationPage } from './navigation-page';
 import { SigninPage } from './signin-page';
 import { NotFoundPage, ServerErrorPage } from './error-pages';
 import { ChatPage } from './chat-page';
-import { ProfilePage } from './profile-pages/profile-page';
-import { ProfileChangePasswordPage } from './profile-pages/profile-password-page';
-import { ProfileEditPage } from './profile-pages';
+import { ProfileEditPage, ProfilePage, ProfileChangePasswordPage } from './profile-pages';
 export {
   NavigationPage,
   LoginPage,

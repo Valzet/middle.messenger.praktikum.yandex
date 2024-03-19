@@ -6,7 +6,7 @@ import InputFieldBlock from 'components/input-field';
 import ButtonBlock from 'components/button';
 import LinkBlock from 'components/link';
 import { validation } from 'utils/validation';
-import { ErrorsMessages } from 'utils/constants/errorMessages';
+import { ErrorsMessagesAuth } from 'utils/constants/errorMessages';
 
 enum Blocks {
   'login' = 'InputLoginField',
@@ -21,7 +21,7 @@ export class LoginPage extends Block {
 
   validateField(inputName: string, value: string) {
     const isValid = validation(inputName, value);
-    const errorMessage: string = isValid ? '' : ErrorsMessages[inputName as keyof typeof ErrorsMessages];
+    const errorMessage: string = isValid ? '' : ErrorsMessagesAuth[inputName as keyof typeof ErrorsMessagesAuth];
     this.children[inputName == (inputName as keyof typeof Blocks) ? Blocks[inputName] : 'login']?.setProps({
       errorMessage: errorMessage,
       value: value
