@@ -6,7 +6,7 @@ import InputFieldBlock from 'components/input-field';
 import ButtonBlock from 'components/button';
 import LinkBlock from 'components/link';
 import { validation } from 'utils/validation';
-import { ErrorsMeggages } from 'utils/constants/errorMessages';
+import { ErrorsMessages } from 'utils/constants/errorMessages';
 
 enum Blocks {
   'login' = 'InputLoginField',
@@ -19,50 +19,49 @@ export class LoginPage extends Block {
     this.state = {};
   }
 
-  validateField(inputName: string, value: string, inputElement: HTMLInputElement) {
+  validateField(inputName: string, value: string) {
     const isValid = validation(inputName, value);
-    if (!isValid) {
-      const errorMessage = ErrorsMeggages[inputName as keyof typeof ErrorsMeggages];
-      console.log(inputElement);
-      this.children[inputName === (inputName as keyof typeof Blocks) ? Blocks[inputName] : 'login']?.setProps({
-        errorMessage: errorMessage,
-      });
-
-      inputElement.classList.add('error');
-    }
-    inputElement.classList.remove('error');
+    const errorMessage: string = isValid ? '' : ErrorsMessages[inputName as keyof typeof ErrorsMessages];
+    this.children[inputName == (inputName as keyof typeof Blocks) ? Blocks[inputName] : 'login']?.setProps({
+      errorMessage: errorMessage,
+      value: value
+    });
+    this.state[inputName] = value;
+  return isValid
   }
+
   handleValidate = (event: Event) => {
+    event.preventDefault()
     const target = event.target as HTMLInputElement;
     if (target) {
       const { name, value } = target;
-      this.validateField(name, value, target);
+      this.validateField(name, value);
       this.state[name] = value;
     }
   };
-  // validateAllFields(): boolean {
-  //   let isValid: boolean = true;
-  //   const inputElements: NodeListOf<HTMLInputElement> = document.querySelectorAll('.login-page__input');
-  //   inputElements.forEach((inputElement: HTMLInputElement) => {
-  //     const { name, value } = inputElement;
-  //     if (!this.validateField(name, value, inputElement)) {
-  //       isValid = false;
-  //     }
-  //   });
-  //   return isValid;
-  // }
+  validateAllFields(): boolean {
+    let isValid: boolean = true;
+    const inputElements: NodeListOf<HTMLInputElement> = document.querySelectorAll('.input__element');
+    inputElements.forEach((inputElement: HTMLInputElement) => {
+      const { name, value } = inputElement;
+      if (!this.validateField(name, value)) {
+        isValid = false;
+      }
+    });
+    return isValid;
+  }
 
   handleSubmit = (e: Event) => {
     e.preventDefault();
-    // if (e.target) {
-    //   if (this.validateAllFields()) {
-    //     console.log('Авторизацииz \n', this.state);
-    //     (e.target as HTMLButtonElement).classList.remove('error');
-    //   } else {
-    //     console.log('Ошибка авторизации \n', this.state);
-    //     (e.target as HTMLButtonElement).classList.add('error');
-    //   }
-    // }
+    if (e.target) {
+      if (this.validateAllFields()) {
+        console.log('Авторизации \n', this.state);
+        (e.target as HTMLButtonElement).classList.remove('error');
+      } else {
+        console.log('Ошибка авторизации \n', this.state);
+        (e.target as HTMLButtonElement).classList.add('error');
+      }
+    }
   };
 
   render() {
@@ -76,6 +75,7 @@ export class LoginPage extends Block {
         title: 'Логин',
         name: 'login',
         type: 'text',
+        placeholder: 'Login',
         events: {
           focusout: (event: Event) => this.handleValidate(event),
         },
@@ -85,18 +85,19 @@ export class LoginPage extends Block {
         title: 'Пароль',
         name: 'password',
         type: 'password',
+        placeholder: '**********',
         events: {
           focusout: (event: Event) => this.handleValidate(event),
         },
       }),
       AuthButton: new ButtonBlock({
         text: 'Авторизоваться',
-        className: 'button button_primary error',
-        // events: {
-        //   click: (e: Event) => {
-        //     this.handleSubmit(e);
-        //   },
-        // },
+        className: 'button button_primary',
+        events: {
+          click: (e: Event) => {
+            this.handleSubmit(e);
+          },
+        },
       }),
       SinginLink: new LinkBlock({
         attr: {

@@ -35,13 +35,9 @@
 
 .input-error {
   display: block;
-  visibility: hidden;
+
   font-size: 8px;
   color: #ff2f2f;
   height: 13px;
   // border-top: 1px solid $link-color;
-}
-
-.error {
-  visibility: visible;
 }

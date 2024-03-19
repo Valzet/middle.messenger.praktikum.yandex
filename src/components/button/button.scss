@@ -9,9 +9,10 @@
   cursor: pointer;
   position: relative;
 
-  &.error-submit {
+  &.error {
     &::after {
       position: absolute;
+      font-size: 9px;
       content: 'Упс...Произошла ошибка авторизации';
       left: 50%;
     top: 70px;
