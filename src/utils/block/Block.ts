@@ -42,16 +42,18 @@ class Block {
   }
 
   _getChildren(propsAndChildren: Props) {
-    const children = {} as typeof this.children;
-    const props = {} as Props;
+    const { children, props } = Object.entries(propsAndChildren).reduce(
+      (acc, [key, value]) => {
+        if (value instanceof Block) {
+          acc.children[key as string] = value;
+        } else {
+          acc.props[key] = value;
+        }
+        return acc;
+      },
+      { children: {} as typeof this.children, props: {} as Props },
+    );
 
-    Object.entries(propsAndChildren).forEach(([key, value]): void => {
-      if (value instanceof Block) {
-        children[key as string] = value;
-      } else {
-        props[key] = value;
-      }
-    });
     return { children, props };
   }
 
@@ -128,13 +130,14 @@ class Block {
   }
   protected compile(template: string, props: Props, className?: string | unknown) {
     const propsAndStubs: Record<string, unknown> = { ...props };
+    this.setClassName(className);
+    const fragment = this._createDocumentElement('template') as HTMLTemplateElement;
     Object.entries(this.children).forEach(([key, child]) => {
       propsAndStubs[key] = `<${child._meta.tag} data-id="${child.id}"></${child._meta.tag}>`;
     });
-    this.setClassName(className);
-    const fragment = this._createDocumentElement('template') as HTMLTemplateElement;
 
     fragment.innerHTML = Handlebars.compile(template)(propsAndStubs);
+
     Object.values(this.children).forEach((child) => {
       const stub = fragment.content.querySelector(`[data-id="${child.id}"]`);
       const el = child.getContent();
@@ -188,18 +191,19 @@ class Block {
   }
 
   private _addEvents(): void {
-    const { events = {} } = this.props;
+    const { events } = this.props;
+
     if (events) {
-      Object.entries(events as Record<string, () => void>).forEach(([eventName, callback]) => {
+      Object.entries(events).forEach(([eventName, callback]) => {
         this._element?.addEventListener(eventName, callback);
       });
     }
   }
 
   private _removeEvents(): void {
-    const { events = {} } = this.props;
+    const { events } = this.props;
     if (events) {
-      Object.entries(events as Record<string, () => void>).forEach(([eventName, callback]) => {
+      Object.entries(events).forEach(([eventName, callback]) => {
         this._element?.removeEventListener(eventName, callback);
       });
     }

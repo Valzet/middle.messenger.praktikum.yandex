@@ -1,7 +1,6 @@
 import { regex_email, regex_login, regex_name, regex_password, regex_phone } from 'utils/constants/regex';
 
 export const validation = (type: string, value: string): boolean => {
-  console.log([value, type, regex_login]);
   switch (type) {
     case 'login':
       return regex_login.test(value);

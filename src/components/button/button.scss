@@ -7,6 +7,18 @@
   border-radius: 8px;
   border: 0;
   cursor: pointer;
+  position: relative;
+
+  &.error-submit {
+    &::after {
+      position: absolute;
+      content: 'Упс...Произошла ошибка авторизации';
+      left: 50%;
+    top: 70px;
+    color: red;
+    transform: translateX(-50%);
+    }
+  }
 }
 
 .button_primary {
