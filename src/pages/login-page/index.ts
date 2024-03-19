@@ -6,7 +6,7 @@ import InputFieldBlock from 'components/input-field';
 import ButtonBlock from 'components/button';
 import LinkBlock from 'components/link';
 import { validation } from 'utils/validation';
-import { ErrorsMessagesAuth } from 'utils/constants/errorMessages';
+import { ErrorsMessagesUser } from 'utils/constants/errorMessages';
 
 enum Blocks {
   'login' = 'InputLoginField',
@@ -16,16 +16,22 @@ enum Blocks {
 export class LoginPage extends Block {
   constructor(props: { name?: string }) {
     super('div', { ...props });
-    this.state = {};
+    this.state = {
+      login: '',
+      password: ''
+    };
   }
 
   validateField(inputName: string, value: string) {
     const isValid = validation(inputName, value);
-    const errorMessage: string = isValid ? '' : ErrorsMessagesAuth[inputName as keyof typeof ErrorsMessagesAuth];
+    const errorMessage: string = isValid ? '' : ErrorsMessagesUser[inputName as keyof typeof ErrorsMessagesUser];
     this.children[inputName == (inputName as keyof typeof Blocks) ? Blocks[inputName] : 'login']?.setProps({
       errorMessage: errorMessage,
       value: value
     });
+    if(inputName === 'password_repeat') {
+      return isValid
+    }
     this.state[inputName] = value;
   return isValid
   }
@@ -55,7 +61,7 @@ export class LoginPage extends Block {
     e.preventDefault();
     if (e.target) {
       if (this.validateAllFields()) {
-        console.log('Авторизации \n', this.state);
+        console.log('Авторизация \n', this.state);
         (e.target as HTMLButtonElement).classList.remove('error');
       } else {
         console.log('Ошибка авторизации \n', this.state);
