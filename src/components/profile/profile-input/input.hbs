@@ -1,8 +1,5 @@
-<li class="input__wrapper {{className}}">
-
 <p class="input__title">{{inputName}}</p>
 
-<input type="{{type}}" class="input" value="{{value}}" name="{{name}}" {{#if disabled}}disabled{{/if}} autocomplete="off">
+<input type="{{type}}" class="input" value="{{value}}" name="{{name}}" placeholder="{{placeholder}}" {{#if disabled}}disabled{{/if}} autocomplete="off">
 
-
-</li>
+<span class="profile__input-error" name="{{name}}">{{errorMessage}}</span>

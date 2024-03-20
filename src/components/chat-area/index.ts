@@ -1,13 +1,9 @@
 import './chat-area.scss';
-import ChatArea from './chat-area.hbs?raw';
+import ChatAreaBlock from './chat-area.hbs?raw';
 import Block from 'utils/block/Block';
 
-export class ChatAreaBlock extends Block {
-  constructor(props: any) {
-    super('div', props);
-  }
-
+export class ChatArea extends Block {
   render() {
-    return this.compile(ChatArea, this.props);
+    return this.compile(ChatAreaBlock, this.props, 'chat-area');
   }
 }

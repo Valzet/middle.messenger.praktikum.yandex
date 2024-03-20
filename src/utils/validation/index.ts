@@ -1,7 +1,6 @@
 import { regex_email, regex_login, regex_name, regex_password, regex_phone } from 'utils/constants/regex';
 
-export const validation = (type: string, value: string): boolean => {
-  console.log([value, type, regex_login]);
+export const validation = (type: string, value: string, secondValue?: string): boolean => {
   switch (type) {
     case 'login':
       return regex_login.test(value);
@@ -13,11 +12,10 @@ export const validation = (type: string, value: string): boolean => {
       return regex_name.test(value);
     case 'phone':
       return regex_phone.test(value);
+    case 'newPasswrd':
+    case 'password_repeat':
+      return value === secondValue;
     default:
       return false;
   }
-};
-
-export const doesPasswordMatch = (password: string, repeatPassword: string): boolean => {
-  return password === repeatPassword;
 };

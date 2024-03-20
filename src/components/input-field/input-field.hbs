@@ -1,7 +1,5 @@
+<div class="input-field__title">{{ title }}</div>
 
-  <div class="input-field__title">{{ title }}</div>
-  <div>
-    <input class="input__element{{#if align-right}} input__element--align-right{{/if}}" type="{{ type }}"
-      title="{{ title }}" name="{{ name }}" value="{{value}}" placeholder="{{placeholder}}" >
-      </div>
-
+<input class="input__element" type="{{ type }}"
+  title="{{ title }}" name="{{ name }}"  placeholder="{{placeholder}}" value="{{value}}"> </input>
+<span class="input-error" name="{{name}}">{{errorMessage}}</span>

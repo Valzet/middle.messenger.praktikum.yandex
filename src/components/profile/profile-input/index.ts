@@ -4,9 +4,9 @@ import Block from 'utils/block/Block';
 
 export default class ProfileInput extends Block {
   constructor(props: any) {
-    super('div', props);
+    super('li', props);
   }
   render() {
-    return this.compile(ProfileInputBlock, this.props);
+    return this.compile(ProfileInputBlock, this.props, `input__wrapper ${this.props.className}`);
   }
 }
