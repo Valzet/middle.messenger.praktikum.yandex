@@ -3,7 +3,7 @@ import Button from './button.hbs?raw';
 import Block from 'utils/block/Block';
 
 export default class ButtonBlock extends Block {
-  constructor(props: any) {
+  constructor(props: Record<string, unknown>) {
     super('button', props);
   }
   render() {

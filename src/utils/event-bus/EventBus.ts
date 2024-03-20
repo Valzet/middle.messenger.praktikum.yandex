@@ -1,5 +1,5 @@
 interface Callback {
-  (...args: any[]): void;
+  (...args: Record<string, unknown>[]): void;
 }
 
 class EventBus {
@@ -19,7 +19,7 @@ class EventBus {
     }
     this.listeners[eventName] = this.listeners[eventName].filter((listener) => listener !== callback);
   }
-  emit(eventName: string, ...args: any[]): void {
+  emit(eventName: string, ...args: Record<string, unknown>[]): void {
     const eventListeners = this.listeners[eventName];
     if (!eventListeners) {
       throw new Error(`No events with this name: ${eventName}`);

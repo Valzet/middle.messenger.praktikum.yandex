@@ -3,7 +3,7 @@ import SearchInput from './search-input.hbs?raw';
 import Block from 'utils/block/Block';
 
 export default class SearchInputBlock extends Block {
-  constructor(props: any) {
+  constructor(props: Record<string, unknown>) {
     super('div', props);
   }
   render() {

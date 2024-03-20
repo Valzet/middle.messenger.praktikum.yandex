@@ -3,7 +3,7 @@ import PageTitle from './page-title.hbs?raw';
 import Block from 'utils/block/Block';
 
 export default class PageTitleBlock extends Block {
-  constructor(props: any) {
+  constructor(props: Record<string, unknown>) {
     super('h1', props);
   }
   render() {
