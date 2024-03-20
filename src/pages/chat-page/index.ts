@@ -5,6 +5,7 @@ import Block from 'utils/block/Block';
 import Link from 'components/link';
 import SearchInputBlock from 'components/search-input';
 import ChatList from 'components/chat-list';
+import { ChatArea } from 'components/chat-area';
 
 export class ChatPage extends Block {
   constructor(props: any) {
@@ -32,6 +33,9 @@ export class ChatPage extends Block {
 
       ChatList: new ChatList('div', {
         chats: chatData,
+      }),
+      ChatArea: new ChatArea('div', {
+        chat: null,
       }),
     };
     return this.compile(ChatPageBlock, this.props, 'chat-page');
