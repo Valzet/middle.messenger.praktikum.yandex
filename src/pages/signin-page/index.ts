@@ -8,7 +8,6 @@ import LinkBlock from 'components/link';
 import { ErrorsMessagesUser } from 'utils/constants/errorMessages';
 import { validation } from 'utils/validation';
 
-
 enum Blocks {
   'email' = 'MailInputField',
   'login' = 'LoginInputField',
@@ -29,7 +28,7 @@ export class SigninPage extends Block {
       second_name: '',
       phone: '',
       password: '',
-      password_repeat: ''
+      password_repeat: '',
     };
   }
 
