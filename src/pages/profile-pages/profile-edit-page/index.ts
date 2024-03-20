@@ -142,7 +142,7 @@ export class ProfileEditPage extends Block {
           focusout: (event: Event) => this.handleValidate(event),
         },
       }),
-      ChangePasswordBtn: new ButtonBlock({
+      SubmitButton: new ButtonBlock({
         text: 'Сохранить',
         className: 'button button_primary button_primary_size_small',
         events: {
