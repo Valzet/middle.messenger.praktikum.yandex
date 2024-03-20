@@ -15,51 +15,8 @@
   padding: 0;
 }
 
-.buttons {
-  width: 30%;
-  border-bottom: 1px solid #eaeaea;
-  margin: 0 auto 0 0;
-}
-
 .button {
   margin: 0;
-}
-
-.buttons:last-of-type {
-  border-bottom: none;
-}
-
-.hidden {
-  visibility: 0;
-}
-
-.avatar {
-  position: relative;
-  display: inline-block;
-}
-
-.avatar__overlay {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: rgba(0, 0, 0, 0.5);
-  color: white;
-  border-radius: 5px;
-  opacity: 0;
-  transition: opacity 0.3s;
-  width: 130px;
-  height: 130px;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: none;
-}
-
-.avatar:hover .avatar__overlay {
-  opacity: 1;
-  cursor: pointer;
 }
 
 .buttons {
@@ -82,4 +39,40 @@
   margin: 40px 0;
   width: 100%;
   padding: 0;
+}
+
+.buttons:last-of-type {
+  border-bottom: none;
+}
+
+.hidden {
+  visibility: 0;
+}
+
+.avatar {
+  position: relative;
+  display: inline-block;
+}
+
+.avatar__overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #0000008a;
+  color: white;
+  opacity: 0;
+  transition: opacity 0.3s;
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+}
+
+.avatar:hover .avatar__overlay {
+  opacity: 1;
+  cursor: pointer;
 }

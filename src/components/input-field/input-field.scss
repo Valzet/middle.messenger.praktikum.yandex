@@ -13,6 +13,7 @@
   border-radius: 6px;
   background-color: #fff;
   width: 100%;
+
   &__element {
     border: none;
     padding: 0;
@@ -35,9 +36,7 @@
 
 .input-error {
   display: block;
-
   font-size: 8px;
   color: #ff2f2f;
   height: 13px;
-  // border-top: 1px solid $link-color;
 }

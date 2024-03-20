@@ -18,7 +18,7 @@ export class LoginPage extends Block {
     super('div', { ...props });
     this.state = {
       login: '',
-      password: ''
+      password: '',
     };
   }
 
@@ -27,17 +27,17 @@ export class LoginPage extends Block {
     const errorMessage: string = isValid ? '' : ErrorsMessagesUser[inputName as keyof typeof ErrorsMessagesUser];
     this.children[inputName == (inputName as keyof typeof Blocks) ? Blocks[inputName] : 'login']?.setProps({
       errorMessage: errorMessage,
-      value: value
+      value: value,
     });
-    if(inputName === 'password_repeat') {
-      return isValid
+    if (inputName === 'password_repeat') {
+      return isValid;
     }
     this.state[inputName] = value;
-  return isValid
+    return isValid;
   }
 
   handleValidate = (event: Event) => {
-    event.preventDefault()
+    event.preventDefault();
     const target = event.target as HTMLInputElement;
     if (target) {
       const { name, value } = target;
