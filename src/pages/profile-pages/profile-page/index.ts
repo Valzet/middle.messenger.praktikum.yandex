@@ -76,7 +76,7 @@ export class ProfilePage extends Block {
         type: 'text',
         value: user.display_name,
         disabled: true,
-        inputName: 'Почта',
+        inputName: 'Имя в чате',
       }),
       ProfilePhoneInput: new ProfileInput({
         className: 'input-field__bottom-border',
