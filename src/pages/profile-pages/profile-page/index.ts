@@ -109,7 +109,7 @@ export class ProfilePage extends Block {
         },
         text: 'Выйти',
       }),
-      Modal: new Modal({
+      Modal: new Modal('div', {
         events: {
           click: (e: Event) => this.handleOpenModal(e),
         },

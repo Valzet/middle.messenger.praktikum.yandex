@@ -8,7 +8,7 @@ import ChatList from 'components/chat-list';
 import { ChatArea } from 'components/chat-area';
 
 export class ChatPage extends Block {
-  constructor(props: any) {
+  constructor(props: Record<string, unknown>) {
     super('div', props);
   }
 

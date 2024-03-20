@@ -2,7 +2,7 @@ import ProfileUserTitle from './profile-user.hbs?raw';
 import Block from 'utils/block/Block';
 import '../profile.scss';
 export default class ProfileUserTitleBlock extends Block {
-  constructor(props: any) {
+  constructor(props: Record<string, unknown>) {
     super('div', props);
   }
   render() {

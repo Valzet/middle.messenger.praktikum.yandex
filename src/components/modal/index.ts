@@ -4,9 +4,6 @@ import './modal.scss';
 
 import Block from 'utils/block/Block';
 export default class Modal extends Block {
-  constructor(props: any) {
-    super('div', props);
-  }
   render() {
     this.children = {
       Button: new ButtonBlock({
