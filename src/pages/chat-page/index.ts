@@ -1,14 +1,43 @@
-import Handlebars from 'handlebars';
 import './chat-page.scss';
-export { default as ChatPage } from './chat-page.hbs?raw';
-import opossum from '../../assets/images/opossum_1.png';
-import badger from '../../assets/images/badger_1.png';
-import raccoon from '../../assets/images/enot_1.jpg';
+import ChatPageBlock from './chat-page.hbs?raw';
+import { chatData } from '../../data/tempData';
+import Block from 'utils/block/Block';
+import Link from 'components/link';
+import SearchInputBlock from 'components/search-input';
+import ChatList from 'components/chat-list';
+import { ChatArea } from 'components/chat-area';
 
-Handlebars.registerHelper('chat-page-list', () => {
-  return [
-    { name: 'Опоссум', message: 'Изображение', unread: '2', avatar: opossum },
-    { name: 'Енот', message: 'Go на свалку!', avatar: raccoon },
-    { name: 'Барсук', message: 'А у кого ключи от сарая?', unread: '4', avatar: badger },
-  ];
-});
+export class ChatPage extends Block {
+  constructor(props: Record<string, unknown>) {
+    super('div', props);
+  }
+
+  render() {
+    this.children = {
+      ProfileLink: new Link({
+        attr: {
+          class: 'link__align-right link__sidebar',
+          href: 'profile',
+        },
+        text: 'Профиль >',
+      }),
+      ReturnLink: new Link({
+        attr: {
+          href: 'login',
+        },
+        text: 'Назад к логину',
+      }),
+      SearchInput: new SearchInputBlock({
+        placeholder: 'Поиск',
+      }),
+
+      ChatList: new ChatList('div', {
+        chats: chatData,
+      }),
+      ChatArea: new ChatArea('div', {
+        chat: null,
+      }),
+    };
+    return this.compile(ChatPageBlock, this.props, 'chat-page');
+  }
+}

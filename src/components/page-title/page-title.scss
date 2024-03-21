@@ -1,8 +1,8 @@
-@import '../../assets/variables';
+@import 'assets/variables';
 
 .page-title {
-  font: $font-big;
+  font-size: 20px;
   text-align: center;
-  margin: 20px 0 40px;
+  margin: 20px 0;
   color: $title-color;
 }

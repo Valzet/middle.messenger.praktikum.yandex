@@ -1,11 +1,20 @@
-@import '../../assets/variables';
+@import 'assets/variables';
 
 .chat-page {
   height: 100%;
   width: 100%;
-  display: grid;
+  display: flex;
 
   &__list {
+    width: 100%;
     border-right: 1px solid $divider-line-color;
   }
+}
+
+.chat-page__sidebar {
+  max-width: 310px;
+  color: #999;
+  background-color: #fbfbfb;
+  height: 100vh;
+  border-right: 1px solid #eaeaea;
 }

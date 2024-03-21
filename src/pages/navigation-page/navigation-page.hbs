@@ -1,15 +1,13 @@
-<nav class="navigation-page">
-
-    {{> PageTitle title="Навигация по страницам" }}
-    <ul class="list">
-    <li>
-        {{> Link page="login" text="Логин" url='login'}}</li>
-    <li>{{> Link page="signin" text="Регистрация" url='login'}}</li>
-    <li>{{> Link page="chat" text="Чат" url='login'}}</li>
-    <li>{{> Link page="profile" text="Профиль" url='profile'}}</li>
-    <li>{{> Link page="editProfile" text="Изменить профиль" url='editProfile'}}</li>
-    <li> {{> Link page="changePassword" text="Изменить пароль" url='changePassword'}}</li>
-    <li> {{> Link page="404" text="404" url='404'}}</li>
-    <li>{{> Link page="500" text="500" url='500'}}</li>
-    </ul>
+<nav class='navigation-page'>
+  {{{PageTitle}}}
+  <ul class='list'>
+   <li>{{{LoginLink}}}</li>
+   <li> {{{SigninLink}}}</li>
+   <li> {{{ChatLink}}}</li>
+    <li>{{{ProfileLink}}}</li>
+    <li>{{{EditProfileLink}}}</li>
+    <li>{{{ChangePasswordLink}}}</li>
+    <li>{{{NotFoundLink}}}</li>
+   <li> {{{ServerErrorLink}}}</li>
+  </ul>
 </nav>

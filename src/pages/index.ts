@@ -1,9 +1,17 @@
-export { ChatPage } from './chat-page';
-export { LoginPage } from './login-page';
-export { NavigationPage } from './navigation-page';
-export { SigninPage } from './signin-page';
-export { ProfilePage } from './profile-pages';
-export { ProfileEditPage } from './profile-pages';
-export { ProfilePasswordPage } from './profile-pages';
-export { ServerErrorPage } from './error-pages';
-export { NotFoundErrorPage } from './error-pages';
+import { LoginPage } from './login-page';
+import { NavigationPage } from './navigation-page';
+import { SigninPage } from './signin-page';
+import { NotFoundPage, ServerErrorPage } from './error-pages';
+import { ChatPage } from './chat-page';
+import { ProfileEditPage, ProfilePage, ProfileChangePasswordPage } from './profile-pages';
+export {
+  NavigationPage,
+  LoginPage,
+  NotFoundPage,
+  ServerErrorPage,
+  SigninPage,
+  ChatPage,
+  ProfilePage,
+  ProfileChangePasswordPage,
+  ProfileEditPage,
+};

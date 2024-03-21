@@ -1,10 +1,8 @@
-<div class='modal__overlay'>
-  <div class='modal__content'>
-    {{errorTittle ?? modalTitle}}
-    {{modalContent}}
-    <div>
-      {{modalAction}}
-      {{error}}
-    </div>
-  </div>
-</div>
+<form class='modal__content'>
+
+  <h3>Загрузите файл</h3>
+
+  <input type="file" class="modal__input-file" id="fileInput">
+  <label for="fileInput"></label>
+  {{{Button}}}
+</form>

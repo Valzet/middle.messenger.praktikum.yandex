@@ -1,14 +1,33 @@
+@import 'assets/variables';
+
 .login-page {
   width: 280px;
   height: 390px;
   display: flex;
   flex-direction: column;
+  margin: 0 auto;
 
   &__content {
     flex: 1;
   }
 
   &__input {
-    margin-top: 16px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 5px;
+    position: relative;
   }
+}
+
+.dialog-wrapper {
+  background: $dialog-bgcolor;
+  box-shadow: $dialog-shadow;
+  border-radius: 12px;
+  padding: 30px;
+  margin: 120px auto 0;
+  max-width: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

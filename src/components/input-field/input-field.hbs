@@ -1,4 +1,5 @@
-<div class="input-field{{#if className}} {{ className }}{{/if}}">
-  <div class="input-field__title">{{ title }}</div>
-  {{> Input className="input-field__element" type=type title=title name=name }}
-</div>
+<div class="input-field__title">{{ title }}</div>
+
+<input class="input__element" type="{{ type }}"
+  title="{{ title }}" name="{{ name }}"  placeholder="{{placeholder}}" value="{{value}}"> </input>
+<span class="input-error" name="{{name}}">{{errorMessage}}</span>
